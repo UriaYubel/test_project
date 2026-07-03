@@ -1,0 +1,53 @@
+{
+  "name": "datatool",
+  "description": "数据调试工具",
+  "author": "datatool",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "electron:dev": "vite & start electron .",
+    "electron:build": "vite build && electron-builder"
+  },
+  "dependencies": {
+    "@serialport/parser-byte-length": "^13.0.0",
+    "serialport": "^13.0.0",
+    "vue": "^3.5.38",
+    "vue-router": "^5.1.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.7",
+    "electron": "^42.5.0",
+    "electron-builder": "^26.15.3",
+    "vite": "^8.0.16",
+    "vite-plugin-vue-devtools": "^8.1.2"
+  },
+  "engines": {
+    "node": "^22.18.0 || >=24.12.0"
+  },
+  "build": {
+    "appId": "com.datatool.app",
+    "productName": "DataTool",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
